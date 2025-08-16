@@ -1,0 +1,68 @@
+# 🛡️ Windows Firewall Manager (ports.py)
+
+Windows Firewall Manager is my first custom-built **firewall control project**,  
+designed to manage ports and connections directly through Python.  
+It allows users to **block, unblock, and monitor ports**, as well as  
+enable logging for dropped packets, and export/import firewall rules.  
+
+The program supports **3 free attempts** for blocking/unblocking ports  
+without signing in, and **unlimited attempts after email verification**  
+using a simple offline format check.  
+
+This tool is lightweight, requires **no external modules**, and integrates  
+seamlessly with Windows Firewall using built-in system commands.  
+
+---
+
+## 📦 Required Python Modules
+No external modules required.  
+(Built entirely on Python’s standard library + Windows firewall commands).  
+
+---
+
+## ✨ Features
+- 🚫 Block a port or port range (TCP/UDP/inbound/outbound)  
+- ✅ Unblock a port or port range  
+- 📜 List or clear all tool-created rules  
+- 🔒 BLOCK ALL connections (inbound + outbound)  
+- 🌐 ALLOW ALL connections (restore internet access)  
+- 💾 Export and Import firewall configurations  
+- 📝 Enable firewall logging (track dropped connections)  
+- 📊 Show recent dropped connections from log  
+- 🌍 Show IP information for awareness  
+- 🆓 3 free actions without signing in  
+- ✉️ Unlimited actions after email verification  
+
+---
+
+## 🚀 Usage
+Run the script in **Command Prompt**:  
+```bash
+python ports.py
+======================================================================================================================================================================================
+blocking port 25
+
+=== WINDOWS FIREWALL MANAGER ===
+1. Block port
+2. Unblock port
+...
+Enter choice: 1
+Enter port or range: 25
+Protocol [TCP/UDP/BOTH]: BOTH
+Direction [in/out/both]: both
+[+] Created block rules:
+   FWMgr Block TCP IN Port 25
+   FWMgr Block TCP OUT Port 25
+   FWMgr Block UDP IN Port 25
+   FWMgr Block UDP OUT Port 25
+=========================================================================================================================================================================================
+unblocking port 25
+
+Enter choice: 2
+Enter port or range: 25
+Protocol [TCP/UDP/BOTH]: BOTH
+Direction [in/out/both]: both
+[+] Removed rule: FWMgr Block TCP IN Port 25
+[+] Removed rule: FWMgr Block TCP OUT Port 25
+[+] Removed rule: FWMgr Block UDP IN Port 25
+[+] Removed rule: FWMgr Block UDP OUT Port 25
